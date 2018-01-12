@@ -1,0 +1,1209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetNewBagId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dateId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="factoryId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewBagIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewBagIdResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MakeBag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batteryIds" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="batteryGrade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lotId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userInfo" type="tns:ArrayOfUserInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="warehouseId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUserInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UserInfo" nillable="true" type="tns:UserInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="departmentId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="departmentName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="roleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="functionId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="factoryId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="canAdd" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="canEdit" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="canVoid" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="canQuery" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="canExport" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="isAdministrator" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MakeBagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MakeBagResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDuplicateBagId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batteryId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDuplicateBagIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDuplicateBagIdResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewBoxId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="customerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dateId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="factoryId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewBoxIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNewBoxIdResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakeBox">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batteryIds" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="batteryGrade" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lotId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userInfo" type="tns:ArrayOfUserInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="warehouseId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakeBoxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MakeBoxResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyAbnormalLots">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="abnormalLots" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="abnormalCode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userInfo" type="tns:ArrayOfUserInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="isoFormNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="abnormalCause" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="abnormalDispal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyAbnormalLotsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAbnormalLots">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAbnormalLotsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAbnormalLotsResult" type="tns:ArrayOfAbnormalLot" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAbnormalLot">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AbnormalLot" nillable="true" type="tns:AbnormalLot" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AbnormalLot">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="lotId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="abnormalCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="abnormalStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="modifiedDatetime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="isoFormNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="abnormalCause" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="abnormalDisposal" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPackingInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackingInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPackingInfoResult" type="tns:ArrayOfPackingInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPackingInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PackingInfo" nillable="true" type="tns:PackingInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PackingInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="itemNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="unit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="netWeight" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="packageCount" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProductNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="moId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductNoResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductInfoResult" type="tns:ArrayOfProductNo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProductNo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProductNo" nillable="true" type="tns:ProductNo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProductNo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="spec" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBatteryGrade">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batteryId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBatteryGradeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBatteryGradeResult" type="tns:ArrayOfBatteryGrade" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBatteryGrade">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BatteryGrade" nillable="true" type="tns:BatteryGrade" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BatteryGrade">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="batteryId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="grade" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPurchaseOrderInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="salesOrderNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPurchaseOrderInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPurchaseOrderInfoResult" type="tns:ArrayOfPurchaseOrderNo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPurchaseOrderNo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PurchaseOrderNo" nillable="true" type="tns:PurchaseOrderNo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PurchaseOrderNo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="customerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="productNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="purchaseOrderNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="factoryId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserInfoResult" type="tns:ArrayOfUserInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWarehouseInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="moId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="grade" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWarehouseInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWarehouseInfoResult" type="tns:ArrayOfWarehouse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWarehouse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Warehouse" nillable="true" type="tns:Warehouse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Warehouse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="warehouseId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="warehouseName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDepartmentInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="transactionOrderNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDepartmentInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDepartmentInfoResult" type="tns:ArrayOfDepartmentInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDepartmentInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DepartmentInfo" nillable="true" type="tns:DepartmentInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DepartmentInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="departmentId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="departmentName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ModifyLabel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileContent" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyLabelResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLabel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLabelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLabelResult" type="tns:ArrayOfBase64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBase64Binary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="base64Binary" nillable="true" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ModifyLabelPrintHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userInfo" type="tns:ArrayOfUserInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="commandLine" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModifyLabelPrintHistoryResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPlgdw01Datetime">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPlgdw01DatetimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlgdw01DatetimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTranslateName">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTranslateNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTranslateNameResult" type="tns:ArrayOfTranslateName" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTranslateName">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TranslateName" nillable="true" type="tns:TranslateName" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TranslateName">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="variableName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="translateName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPackedBags">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPackedBagsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPackedBagsResult" type="tns:ArrayOfPackedBag" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPackedBag">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PackedBag" nillable="true" type="tns:PackedBag" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PackedBag">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="bagId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="productNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="modifiedDatetime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="batteryCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MakeStorageBill">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bagIds" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="userInfo" type="tns:ArrayOfUserInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakeStorageBillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MakeStorageBillResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStorageBillPrintedBags">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="storageBillNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStorageBillPrintedBagsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStorageBillPrintedBagsResult" type="tns:ArrayOfStorageBillPrintedBag" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfStorageBillPrintedBag">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StorageBillPrintedBag" nillable="true" type="tns:StorageBillPrintedBag" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StorageBillPrintedBag">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="productNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lotId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="bagId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="batteryGrade" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="batteryCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MakeInStorage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="storageBillNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userInfo" type="tns:ArrayOfUserInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakeInStorageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MakeInStorageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetNewBagIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewBagId" />
+  </wsdl:message>
+  <wsdl:message name="GetNewBagIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewBagIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakeBagSoapIn">
+    <wsdl:part name="parameters" element="tns:MakeBag" />
+  </wsdl:message>
+  <wsdl:message name="MakeBagSoapOut">
+    <wsdl:part name="parameters" element="tns:MakeBagResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDuplicateBagIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDuplicateBagId" />
+  </wsdl:message>
+  <wsdl:message name="GetDuplicateBagIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDuplicateBagIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNewBoxIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNewBoxId" />
+  </wsdl:message>
+  <wsdl:message name="GetNewBoxIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNewBoxIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakeBoxSoapIn">
+    <wsdl:part name="parameters" element="tns:MakeBox" />
+  </wsdl:message>
+  <wsdl:message name="MakeBoxSoapOut">
+    <wsdl:part name="parameters" element="tns:MakeBoxResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyAbnormalLotsSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifyAbnormalLots" />
+  </wsdl:message>
+  <wsdl:message name="ModifyAbnormalLotsSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifyAbnormalLotsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAbnormalLotsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAbnormalLots" />
+  </wsdl:message>
+  <wsdl:message name="GetAbnormalLotsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAbnormalLotsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPackingInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPackingInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPackingInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPackingInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductNoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductNo" />
+  </wsdl:message>
+  <wsdl:message name="GetProductNoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBatteryGradeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBatteryGrade" />
+  </wsdl:message>
+  <wsdl:message name="GetBatteryGradeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBatteryGradeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPurchaseOrderInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPurchaseOrderInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPurchaseOrderInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPurchaseOrderInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWarehouseInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWarehouseInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetWarehouseInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWarehouseInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDepartmentInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetDepartmentInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDepartmentInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyLabelSoapIn">
+    <wsdl:part name="parameters" element="tns:ModifyLabel" />
+  </wsdl:message>
+  <wsdl:message name="ModifyLabelSoapOut">
+    <wsdl:part name="parameters" element="tns:ModifyLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLabelSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLabel" />
+  </wsdl:message>
+  <wsdl:message name="GetLabelSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLabelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModifyLabelPrintHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:ModifyLabelPrintHistory" />
+  </wsdl:message>
+  <wsdl:message name="ModifyLabelPrintHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:ModifyLabelPrintHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlgdw01DatetimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlgdw01Datetime" />
+  </wsdl:message>
+  <wsdl:message name="GetPlgdw01DatetimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlgdw01DatetimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTranslateNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTranslateName" />
+  </wsdl:message>
+  <wsdl:message name="GetTranslateNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTranslateNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPackedBagsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPackedBags" />
+  </wsdl:message>
+  <wsdl:message name="GetPackedBagsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPackedBagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakeStorageBillSoapIn">
+    <wsdl:part name="parameters" element="tns:MakeStorageBill" />
+  </wsdl:message>
+  <wsdl:message name="MakeStorageBillSoapOut">
+    <wsdl:part name="parameters" element="tns:MakeStorageBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStorageBillPrintedBagsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStorageBillPrintedBags" />
+  </wsdl:message>
+  <wsdl:message name="GetStorageBillPrintedBagsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStorageBillPrintedBagsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakeInStorageSoapIn">
+    <wsdl:part name="parameters" element="tns:MakeInStorage" />
+  </wsdl:message>
+  <wsdl:message name="MakeInStorageSoapOut">
+    <wsdl:part name="parameters" element="tns:MakeInStorageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DatabaseSoap">
+    <wsdl:operation name="GetNewBagId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得新的內包ID/參數:日期,廠別/回傳:內包ID</wsdl:documentation>
+      <wsdl:input message="tns:GetNewBagIdSoapIn" />
+      <wsdl:output message="tns:GetNewBagIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeBag">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:建立內包/參數:電池序號,電池等級,品號,批號,使用者工號,倉庫代碼/回傳:正常→內包ID,錯誤→拋出異常</wsdl:documentation>
+      <wsdl:input message="tns:MakeBagSoapIn" />
+      <wsdl:output message="tns:MakeBagSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDuplicateBagId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得電池序號已構成之內包/參數:電池序號/回傳:內包ID</wsdl:documentation>
+      <wsdl:input message="tns:GetDuplicateBagIdSoapIn" />
+      <wsdl:output message="tns:GetDuplicateBagIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewBoxId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得新的外箱ID/參數:客戶代碼,日期,廠別/回傳:外箱ID</wsdl:documentation>
+      <wsdl:input message="tns:GetNewBoxIdSoapIn" />
+      <wsdl:output message="tns:GetNewBoxIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeBox">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:建立內包/參數:電池序號,電池等級,品號,批號,使用者工號,倉庫代碼/回傳:正常→內包ID,錯誤→拋出異常</wsdl:documentation>
+      <wsdl:input message="tns:MakeBoxSoapIn" />
+      <wsdl:output message="tns:MakeBoxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAbnormalLots">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:建立/更新/作廢異常批號(批次)/參數:異常批號,異常批號狀態碼,使用者工號,ISO表單號碼,異常原因,處理方式/回傳:正常→無,錯誤→拋出異常</wsdl:documentation>
+      <wsdl:input message="tns:ModifyAbnormalLotsSoapIn" />
+      <wsdl:output message="tns:ModifyAbnormalLotsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAbnormalLots">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得異常批號/參數:無/回傳:異常批號</wsdl:documentation>
+      <wsdl:input message="tns:GetAbnormalLotsSoapIn" />
+      <wsdl:output message="tns:GetAbnormalLotsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackingInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得包裝資訊/參數:品號/回傳:單位,淨重,最大包裝數</wsdl:documentation>
+      <wsdl:input message="tns:GetPackingInfoSoapIn" />
+      <wsdl:output message="tns:GetPackingInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得品號/參數:製令/回傳:品號</wsdl:documentation>
+      <wsdl:input message="tns:GetProductNoSoapIn" />
+      <wsdl:output message="tns:GetProductNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得產品資訊/參數:品號/回傳:品名,規格</wsdl:documentation>
+      <wsdl:input message="tns:GetProductInfoSoapIn" />
+      <wsdl:output message="tns:GetProductInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatteryGrade">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得電池等級/參數:電池序號/回傳:等級</wsdl:documentation>
+      <wsdl:input message="tns:GetBatteryGradeSoapIn" />
+      <wsdl:output message="tns:GetBatteryGradeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPurchaseOrderInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得訂單資訊/參數:銷貨單號/回傳:訂單單號,客戶名稱,ERP品號</wsdl:documentation>
+      <wsdl:input message="tns:GetPurchaseOrderInfoSoapIn" />
+      <wsdl:output message="tns:GetPurchaseOrderInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得使用者資訊/參數:工號/回傳:使用者姓名,部門編號,部門名稱,使用者職稱</wsdl:documentation>
+      <wsdl:input message="tns:GetUserInfoSoapIn" />
+      <wsdl:output message="tns:GetUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得庫別資訊/參數:製令,電池等級/回傳:庫別代號,庫別名稱</wsdl:documentation>
+      <wsdl:input message="tns:GetWarehouseInfoSoapIn" />
+      <wsdl:output message="tns:GetWarehouseInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得部門資訊/參數:異動單號/回傳:部門代號,部門名稱</wsdl:documentation>
+      <wsdl:input message="tns:GetDepartmentInfoSoapIn" />
+      <wsdl:output message="tns:GetDepartmentInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyLabel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:建立標籤檔/參數:客戶代號,標籤檔名稱,檔籤檔二進位碼/回傳:正常→無,錯誤→拋出異常</wsdl:documentation>
+      <wsdl:input message="tns:ModifyLabelSoapIn" />
+      <wsdl:output message="tns:ModifyLabelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLabel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得標籤檔/參數:客戶代號,標籤檔名稱/回傳:檔籤檔位元組</wsdl:documentation>
+      <wsdl:input message="tns:GetLabelSoapIn" />
+      <wsdl:output message="tns:GetLabelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModifyLabelPrintHistory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:建立標籤列印紀錄/參數:標籤檔名稱,使用者工號,列印命令列參數/回傳:正常→無,錯誤→拋出異常</wsdl:documentation>
+      <wsdl:input message="tns:ModifyLabelPrintHistorySoapIn" />
+      <wsdl:output message="tns:ModifyLabelPrintHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlgdw01Datetime">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得資料庫目前時間/參數:無/回傳:時間格式文字(yyyy-MM-dd HH:mm:ss</wsdl:documentation>
+      <wsdl:input message="tns:GetPlgdw01DatetimeSoapIn" />
+      <wsdl:output message="tns:GetPlgdw01DatetimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTranslateName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得中英對照名稱/參數:無/回傳:中英對照名稱</wsdl:documentation>
+      <wsdl:input message="tns:GetTranslateNameSoapIn" />
+      <wsdl:output message="tns:GetTranslateNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackedBags">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得已構成之內包/參數:無/回傳:內包ID,構成時間,品號,電池數量</wsdl:documentation>
+      <wsdl:input message="tns:GetPackedBagsSoapIn" />
+      <wsdl:output message="tns:GetPackedBagsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeStorageBill">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:產生入庫單號(=入庫時間)/參數:內包ID,使用者工號/回傳:正常→入庫單號,錯誤→拋出異常</wsdl:documentation>
+      <wsdl:input message="tns:MakeStorageBillSoapIn" />
+      <wsdl:output message="tns:MakeStorageBillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStorageBillPrintedBags">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:取得待入庫內包/參數:入庫時間/回傳:品號,批號,內包ID,電池等級,電池數量</wsdl:documentation>
+      <wsdl:input message="tns:GetStorageBillPrintedBagsSoapIn" />
+      <wsdl:output message="tns:GetStorageBillPrintedBagsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeInStorage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">作用:內包入庫/參數:入庫單號,使用者工號/回傳:正常→入庫單號,錯誤→拋出異常</wsdl:documentation>
+      <wsdl:input message="tns:MakeInStorageSoapIn" />
+      <wsdl:output message="tns:MakeInStorageSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DatabaseSoap" type="tns:DatabaseSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNewBagId">
+      <soap:operation soapAction="http://tempuri.org/GetNewBagId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeBag">
+      <soap:operation soapAction="http://tempuri.org/MakeBag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDuplicateBagId">
+      <soap:operation soapAction="http://tempuri.org/GetDuplicateBagId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewBoxId">
+      <soap:operation soapAction="http://tempuri.org/GetNewBoxId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeBox">
+      <soap:operation soapAction="http://tempuri.org/MakeBox" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAbnormalLots">
+      <soap:operation soapAction="http://tempuri.org/ModifyAbnormalLots" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAbnormalLots">
+      <soap:operation soapAction="http://tempuri.org/GetAbnormalLots" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackingInfo">
+      <soap:operation soapAction="http://tempuri.org/GetPackingInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductNo">
+      <soap:operation soapAction="http://tempuri.org/GetProductNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfo">
+      <soap:operation soapAction="http://tempuri.org/GetProductInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatteryGrade">
+      <soap:operation soapAction="http://tempuri.org/GetBatteryGrade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPurchaseOrderInfo">
+      <soap:operation soapAction="http://tempuri.org/GetPurchaseOrderInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="http://tempuri.org/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseInfo">
+      <soap:operation soapAction="http://tempuri.org/GetWarehouseInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentInfo">
+      <soap:operation soapAction="http://tempuri.org/GetDepartmentInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyLabel">
+      <soap:operation soapAction="http://tempuri.org/ModifyLabel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabel">
+      <soap:operation soapAction="http://tempuri.org/GetLabel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyLabelPrintHistory">
+      <soap:operation soapAction="http://tempuri.org/ModifyLabelPrintHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlgdw01Datetime">
+      <soap:operation soapAction="http://tempuri.org/GetPlgdw01Datetime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTranslateName">
+      <soap:operation soapAction="http://tempuri.org/GetTranslateName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackedBags">
+      <soap:operation soapAction="http://tempuri.org/GetPackedBags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeStorageBill">
+      <soap:operation soapAction="http://tempuri.org/MakeStorageBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStorageBillPrintedBags">
+      <soap:operation soapAction="http://tempuri.org/GetStorageBillPrintedBags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeInStorage">
+      <soap:operation soapAction="http://tempuri.org/MakeInStorage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DatabaseSoap12" type="tns:DatabaseSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetNewBagId">
+      <soap12:operation soapAction="http://tempuri.org/GetNewBagId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeBag">
+      <soap12:operation soapAction="http://tempuri.org/MakeBag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDuplicateBagId">
+      <soap12:operation soapAction="http://tempuri.org/GetDuplicateBagId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewBoxId">
+      <soap12:operation soapAction="http://tempuri.org/GetNewBoxId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeBox">
+      <soap12:operation soapAction="http://tempuri.org/MakeBox" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAbnormalLots">
+      <soap12:operation soapAction="http://tempuri.org/ModifyAbnormalLots" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAbnormalLots">
+      <soap12:operation soapAction="http://tempuri.org/GetAbnormalLots" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackingInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetPackingInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductNo">
+      <soap12:operation soapAction="http://tempuri.org/GetProductNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetProductInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatteryGrade">
+      <soap12:operation soapAction="http://tempuri.org/GetBatteryGrade" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPurchaseOrderInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetPurchaseOrderInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarehouseInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetWarehouseInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetDepartmentInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyLabel">
+      <soap12:operation soapAction="http://tempuri.org/ModifyLabel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabel">
+      <soap12:operation soapAction="http://tempuri.org/GetLabel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyLabelPrintHistory">
+      <soap12:operation soapAction="http://tempuri.org/ModifyLabelPrintHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlgdw01Datetime">
+      <soap12:operation soapAction="http://tempuri.org/GetPlgdw01Datetime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTranslateName">
+      <soap12:operation soapAction="http://tempuri.org/GetTranslateName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackedBags">
+      <soap12:operation soapAction="http://tempuri.org/GetPackedBags" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeStorageBill">
+      <soap12:operation soapAction="http://tempuri.org/MakeStorageBill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStorageBillPrintedBags">
+      <soap12:operation soapAction="http://tempuri.org/GetStorageBillPrintedBags" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeInStorage">
+      <soap12:operation soapAction="http://tempuri.org/MakeInStorage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Database">
+    <wsdl:port name="DatabaseSoap" binding="tns:DatabaseSoap">
+      <soap:address location="http://sr-mesap/lot_tracker_backend/database.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DatabaseSoap12" binding="tns:DatabaseSoap12">
+      <soap12:address location="http://sr-mesap/lot_tracker_backend/database.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
